@@ -12,23 +12,25 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name');
             $table->string('objectguid')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('departamento_id')->nullable();
-            $table->integer('other_departament')->nullable();
-            $table->integer('rule_id')->nullable();
-            $table->integer('status_id')->default(1);
+            $table->bigInteger('departamento_id')->unsigned()->nullable();
+            $table->bigInteger('other_departament')->nullable();
+            $table->bigInteger('rule_id')->unsigned()->nullable();
+            $table->bigInteger('status_id')->unsigned()->default(1);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
+        });
 
-           // $table->foreign('status_id')->references('id')->on('statuses');
-           // $table->foreign('rule_id')->references('id')->on('user_rules');
-           // $table->foreign('departamento_id')->references('id')->on('departamentos');
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('status_id')->references('id')->on('core_status');
+            // $table->foreign('rule_id')->references('id')->on('user_rules');
+            // $table->foreign('departamento_id')->references('id')->on('departamentos');
         });
     }
 
@@ -37,6 +39,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForign('status_id');
+            $table->dropIfExists('users');
+        });
     }
 };
