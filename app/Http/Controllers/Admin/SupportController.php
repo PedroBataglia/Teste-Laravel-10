@@ -17,4 +17,9 @@ class SupportController extends Controller
 
         return view('admin/supports/index');
     }
+
+    public function create(Request $request)
+    {
+        return view('admin/supports/create');
+    }
 }
