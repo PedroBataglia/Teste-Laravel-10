@@ -8,18 +8,22 @@ use Illuminate\Http\Request;
 
 class SupportController extends Controller
 {
-    
+
 
     public function index(Suporte $suporte)
-    { 
+    {
         $suportes = $suporte->all();
-        dd($suportes);
 
-        return view('admin/supports/index');
+        return view('admin/supports/index', compact('suportes'));
     }
 
     public function create()
     {
         return view('admin/supports/create');
+    }
+
+    public function store()
+    {
+        dd('Está funcionando');
     }
 }
