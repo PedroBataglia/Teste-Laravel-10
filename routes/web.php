@@ -6,8 +6,13 @@ use App\Http\Controllers\Site\SiteController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/forum', [SupportController::class, 'index'])->name('supports.index');
-Route::get('/support/create', [SupportController::class, 'index'])->name('supports.create');
+
+Route::group(['prefix' => 'projeto-1'], function() {
+    Route::get('/forum', [SupportController::class, 'index'])->name('supports.index');
+    Route::get('/support/create', [SupportController::class, 'create'])->name('supports.create');
+
+});
+
 
 Route::get('/contato', [siteController::class, 'contact']);
 
