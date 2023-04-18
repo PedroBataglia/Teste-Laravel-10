@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\SupportController;
 use App\Http\Controllers\Admin\Painel\RecursosHumanos\Comunicados\ComunicadosController;
 use App\Http\Controllers\Site\SiteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Projeto2\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,8 +17,9 @@ Route::group(['prefix' => 'projeto-1'], function() {
 
 
 Route::group(['prefix' => 'projeto-2'], function() {
-    Route::get('/usuarios', [UserController::class, 'index'])->name('projeto2.usuarios.index');
-    Route::get('/usuarios/create', [UserController::class, 'create'])->name('projeto-2.suarios.create');
+    Route::post('/usuarios', [UsuarioController::class, 'store'])->name('projeto2.usuarios.store');
+    Route::get('/usuarios', [UsuarioController::class, 'index'])->name('projeto2.usuarios.index');
+    Route::get('/usuarios/create', [UsuarioController::class, 'create'])->name('projeto2.usuarios.create');
 });
 
 
