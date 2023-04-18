@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index (User $user) 
+    public function index (User $user)
     {
         $users = User::all();
-        dd($users);
-
-
         return view('users.index', [
             'users' => $users
         ]);
+    }
+
+    public function create()
+    {
+        return view('users.create');
     }
 }

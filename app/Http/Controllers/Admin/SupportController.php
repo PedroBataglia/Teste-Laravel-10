@@ -22,8 +22,9 @@ class SupportController extends Controller
         return view('admin/supports/create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('Está funcionando');
+
+        dd($request->all());
     }
 }

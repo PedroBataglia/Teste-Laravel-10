@@ -15,6 +15,12 @@ Route::group(['prefix' => 'projeto-1'], function() {
 });
 
 
+Route::group(['prefix' => 'projeto-2'], function() {
+    Route::get('/usuarios', [UserController::class, 'index'])->name('projeto2.usuarios.index');
+    Route::get('/usuarios/create', [UserController::class, 'create'])->name('projeto-2.suarios.create');
+});
+
+
 Route::get('/contato', [siteController::class, 'contact']);
 
 Route::group(['prefix' => 'painel'], function() {
