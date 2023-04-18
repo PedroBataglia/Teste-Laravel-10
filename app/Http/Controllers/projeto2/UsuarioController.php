@@ -19,5 +19,10 @@ class UsuarioController extends Controller
         return view('projeto2.usuarios.create');
     }
 
+    public function store(Request $request)
+    {
+
+        redirect('projeto2.usuarios.index');
+    }
 
 }
