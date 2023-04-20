@@ -13,17 +13,22 @@
             Status
         </th>
     </thead>
-</table>
+
+
+<tbody>
 @foreach($usuarios as $usuario)
-    <tr>
-        <td>
-            {{$usuario->name}}
-        </td>
-        <td>
-            {{$usuario->email}}
-        </td>
-        <td>
-            {{$usuario->status_id}}
-        </td>
-    </tr>
+        <tr>
+            <td>
+                {{$usuario->name}}
+            </td>
+            <td>
+                {{$usuario->email}}
+            </td>
+            <td>
+                {{$usuario->status_id}}
+            </td>
+        </tr>
+
 @endforeach
+</tbody>
+</table>

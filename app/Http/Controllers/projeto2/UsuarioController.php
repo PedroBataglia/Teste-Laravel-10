@@ -27,7 +27,7 @@ class UsuarioController extends Controller
 
         $usuario = $usuario->create($data);
 
-        return redirect()->view('projeto2.usuarios.index');
+        return redirect()->route('projeto2.usuarios.index');
     }
 
 }
