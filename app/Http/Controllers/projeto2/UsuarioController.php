@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 
+
 class UsuarioController extends Controller
 {
     public function index(Usuario $usuario)
@@ -19,10 +20,14 @@ class UsuarioController extends Controller
         return view('projeto2.usuarios.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Usuario $usuario)
     {
+        $data = $request->all();
+        $data['status_id'] = 1;
 
-        redirect('projeto2.usuarios.index');
+        $usuario = $usuario->create($data);
+
+        return redirect()->view('projeto2.usuarios.index');
     }
 
 }

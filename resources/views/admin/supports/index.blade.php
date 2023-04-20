@@ -1,5 +1,7 @@
 <h1>Listagem dos Suportes</h1>
 
+<a href="{{ route('projeto1.supports.create') }}">Criar</a>
+
 <table>
     <thead>
         <th>

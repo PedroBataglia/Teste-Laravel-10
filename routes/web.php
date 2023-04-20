@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'projeto-1'], function() {
-    Route::post('/supports/store', [SupportController::class, 'store'])->name('supports.store');
-    Route::get('/forum', [SupportController::class, 'index'])->name('supports.index');
-    Route::get('/supports/create', [SupportController::class, 'create'])->name('supports.create');
+    Route::post('/supports/store', [SupportController::class, 'store'])->name('projeto1.supports.store');
+    Route::get('/forum', [SupportController::class, 'index'])->name('projeto1.supports.index');
+    Route::get('/supports/create', [SupportController::class, 'create'])->name('projeto1.supports.create');
 
 });
 
